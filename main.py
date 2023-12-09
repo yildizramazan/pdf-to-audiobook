@@ -12,7 +12,21 @@ window = Tk()
 window.title("PDF to Audiobook Converter")
 window.minsize(width=600, height=450)
 
+clicked = StringVar(window)
 
+# initial menu text
+clicked.set("English")
+
+# Create Dropdown menu
+lang_dropdown = OptionMenu(window, clicked, *languages)
+lang_dropdown.pack()
+
+def ok():
+    language_selected = clicked.get()
+    print ("value is: " + language_selected)
+
+button = Button(window, text="OK", command=ok)
+button.pack()
 
 window.mainloop()
 
